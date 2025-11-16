@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Event Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>College Event Management</h1>
+    <p class="tag">Create events • Register • Track participants</p>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab active" data-tab="create" role="tab" aria-selected="true">Create Event</button>
+    <button class="tab" data-tab="events" role="tab" aria-selected="false">Events</button>
+    <button class="tab" data-tab="register" role="tab" aria-selected="false">Register</button>
+    <button class="tab" data-tab="participants" role="tab" aria-selected="false">Participants</button>
+  </nav>
+
+  <main class="content">
+    <!-- Create Event -->
+    <section id="tab-create" class="tab-panel active" role="tabpanel">
+      <form id="createForm" class="card grid">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Tech Fest 2025" required />
+        </div>
+        <div class="field">
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date" required />
+        </div>
+        <div class="field">
+          <label for="venue">Venue</label>
+          <input id="venue" name="venue" type="text" placeholder="Auditorium" required />
+        </div>
+        <div class="field">
+          <label for="max">Max Participants</label>
+          <input id="max" name="max" type="number" min="1" placeholder="100" required />
+        </div>
+        <div class="actions">
+          <button class="btn primary" type="submit">Create Event</button>
+          <button class="btn ghost" type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Events -->
+    <section id="tab-events" class="tab-panel" role="tabpanel">
+      <div class="toolbar">
+        <button id="refreshEvents" class="btn">Refresh</button>
+      </div>
+      <div class="table-wrap card">
+        <table class="table" id="eventsTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Venue</th>
+              <th>Registered</th>
+              <th>Max</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Register -->
+    <section id="tab-register" class="tab-panel" role="tabpanel">
+      <form id="registerForm" class="card grid">
+        <div class="field">
+          <label for="eventId">Event ID</label>
+          <input id="eventId" name="eventId" type="number" min="1" required />
+        </div>
+        <div class="field">
+          <label for="pname">Name</label>
+          <input id="pname" name="pname" type="text" placeholder="Jane Doe" required />
+        </div>
+        <div class="field">
+          <label for="proll">Roll No</label>
+          <input id="proll" name="proll" type="text" placeholder="CS101" required />
+        </div>
+        <div class="field">
+          <label for="pdept">Department</label>
+          <input id="pdept" name="pdept" type="text" placeholder="CSE" />
+        </div>
+        <div class="actions">
+          <button class="btn primary" type="submit">Register</button>
+          <button class="btn ghost" type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Participants -->
+    <section id="tab-participants" class="tab-panel" role="tabpanel">
+      <div class="toolbar">
+        <button id="refreshParticipants" class="btn">Refresh</button>
+      </div>
+      <div class="table-wrap card">
+        <table class="table" id="participantsTable">
+          <thead>
+            <tr>
+              <th>Event ID</th>
+              <th>Event Name</th>
+              <th>Participant</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="app-footer">
+    <span>Made with ❤ for college fests</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

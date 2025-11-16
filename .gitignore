@@ -1,0 +1,16 @@
+# Build outputs
+*.class
+/CollegeEventSystem/
+
+# Runtime data
+*.dat
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.iml
